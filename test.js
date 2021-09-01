@@ -40,16 +40,41 @@ console.log(ilgis - a.length);
 console.log("----------------");
 //6. Duotas Setas, į kurį reikia pridėti reikšmes (stringus) 'Labas' ir 'Ate' ir console.log
 // atspausdinti Seto ilgį
-const set1 = new Set(['Labas', 'Vakaras', 'Rytas', 'Valio']);
-console.log(Object.values(set1))
+const set1 = new Set(['Labas', 'Vakaras', 'Rytas', 'Valio'] ) ;
+set1.add("Labas")
+set1.add("Ate")
+console.log(set1.size);
+console.log("----------------");
+
+
 //7. Suprototaipinti standartinį String tipo objektą, pridedant metodą lastCharIs(), 
 // kuris grąžintų paskutinį stringo simbolį. Pademonstruoti veikimą su stringu 'Ku Ku';
 const str2 = 'Ku ku';
+String.prototype.lastCharIs = function() {
+    let a = str2.split(""); 
+    return a[a.length-1]
+};
+console.log(str2.lastCharIs())
+console.log("----------------");
 // console.log(str2.lastCharIs()) po prototaipinimo eilutė turi veikti
 
 //8. Duotas objektas, kurį reikia iteruoti, kiekvienoje iteracijoje išvedant savybę
 // ir jos reikšmę
 const obj1 = { labas: 'vakaras', laba: 'diena', labs: 'ryts' };
-
+for (const [key, value] of Object.entries(obj1)) {
+    console.log(`${key}: ${value}`);
+  }
+  console.log("----------------");
 //9. Sukurti klasę Grybas. Klasėje sukurti savybė tipas. Iš klasės sukurti
 // 3 Grybo objektus, savybei tipas priskiriant "Baravykas", "Ūmedė" ir "Lepšis"
+class Grybas {
+    constructor(tipas) {
+        this.tipas = tipas
+    }
+}
+
+let baravykas = new Grybas("Baravykas")
+let umede = new Grybas("Umede")
+let lepsis = new Grybas("Lepsis")
+
+console.log(baravykas, umede, lepsis);
